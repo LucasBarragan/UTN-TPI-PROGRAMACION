@@ -1,3 +1,4 @@
+# CARGA DE PAISES
 def cargar_paises_csv():
     paises = []
 
@@ -25,14 +26,49 @@ def cargar_paises_csv():
 
 paises = cargar_paises_csv()
 
-# AGREGAR PAIS
+# AGREGAR PAIS (1)
 
 def agregar_pais(paises):
 
-    nombre = input("Ingrese el nombre del país: ").capitalize()
-    poblacion = int(input("Ingrese la población: "))
-    superficie = int(input("Ingrese la superficie: "))
-    continente = input("Ingrese el continente: ").capitalize()
+    # Validar nombre
+    while True:
+        nombre = input("Ingrese el nombre del país: ").strip().capitalize()
+        if nombre != "":
+            break
+        print("El nombre no puede estar vacío.")
+
+    # Verificar si ya existe
+    for pais in paises:
+        if pais["nombre"] == nombre:
+            print("Ese país ya existe.")
+            return
+
+    # Validar población
+    while True:
+        try:
+            poblacion = int(input("Ingrese la población: "))
+            if poblacion > 0:
+                break
+            print("La población debe ser mayor que 0.")
+        except ValueError:
+            print("Debe ingresar un número.")
+
+    # Validar superficie
+    while True:
+        try:
+            superficie = int(input("Ingrese la superficie: "))
+            if superficie > 0:
+                break
+            print("La superficie debe ser mayor que 0.")
+        except ValueError:
+            print("Debe ingresar un número.")
+
+    # Validar continente
+    while True:
+        continente = input("Ingrese el continente: ").strip().capitalize()
+        if continente != "":
+            break
+        print("El continente no puede estar vacío.")
 
     nuevo_pais = {
         "nombre": nombre,
@@ -44,7 +80,23 @@ def agregar_pais(paises):
     paises.append(nuevo_pais)
 
     print("País agregado correctamente.")
-    #print(paises[-1]) probamos si funciona
+
+# BUSCAR PAIS (3)
+
+def buscar_pais(paises):
+    while True:
+        nombre_buscado = input("Ingrese el nombre del país: ").strip()
+        if nombre_buscado != "":
+            break
+        print("Debe ingresar un nombre.")
+    encontrado = False
+    for pais in paises:
+        if nombre_buscado.lower() in pais["nombre"].lower():
+            print("\nPaís encontrado:")
+            print(pais)
+            encontrado = True
+    if not encontrado:
+        print("No se encontraron países.")
 
 # MENU
 
@@ -74,7 +126,7 @@ while True:
         print("Actualizar país")
 
     elif opcion == "3":
-        print("Buscar país")
+        buscar_pais(paises)
 
     elif opcion == "4":
         print("Filtrar países")
