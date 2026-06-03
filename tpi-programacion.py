@@ -32,7 +32,7 @@ def agregar_pais(paises):
 
     # Validar nombre
     while True:
-        nombre = input("Ingrese el nombre del país: ").strip().capitalize()
+        nombre = input("Ingrese el nombre del país: ").strip().lower()
         if nombre != "":
             break
         print("El nombre no puede estar vacío.")
@@ -65,7 +65,7 @@ def agregar_pais(paises):
 
     # Validar continente
     while True:
-        continente = input("Ingrese el continente: ").strip().capitalize()
+        continente = input("Ingrese el continente: ").strip().lower()
         if continente != "":
             break
         print("El continente no puede estar vacío.")
@@ -81,6 +81,49 @@ def agregar_pais(paises):
 
     print("País agregado correctamente.")
 
+# ACTUALIZAR PAISES (2)
+
+def actualizar_pais(paises):
+
+    while True:
+        nombre_buscado = input("Ingrese el nombre del país a actualizar: ").strip()
+        if nombre_buscado != "":
+            break
+        print("Debe ingresar un nombre.")
+    encontrado = False
+
+    for pais in paises:
+        if nombre_buscado.lower() == pais["nombre"].lower():
+            print("\nPaís encontrado:")
+            print(pais)
+            # Nueva población
+            while True:
+                try:
+                    nueva_poblacion = int(input("Ingrese la nueva población: "))
+                    if nueva_poblacion > 0:
+                        break
+                    print("La población debe ser mayor que 0.")
+                except ValueError:
+                    print("Debe ingresar un número.")
+            # Nueva superficie
+            while True:
+                try:
+                    nueva_superficie = int(input("Ingrese la nueva superficie: "))
+                    if nueva_superficie > 0:
+                        break
+                    print("La superficie debe ser mayor que 0.")
+                except ValueError:
+                    print("Debe ingresar un número.")
+            pais["poblacion"] = nueva_poblacion
+            pais["superficie"] = nueva_superficie
+            print("\nPaís actualizado correctamente.")
+            print(pais)
+            encontrado = True
+            break
+
+    if not encontrado:
+        print("No se encontró el país.")
+
 # BUSCAR PAIS (3)
 
 def buscar_pais(paises):
@@ -95,6 +138,108 @@ def buscar_pais(paises):
             print("\nPaís encontrado:")
             print(pais)
             encontrado = True
+    if not encontrado:
+        print("No se encontraron países.")
+
+# FILTRAR PAISES (4)
+
+# Filtro para los nombres de los paises
+def filtrar_paises(paises):
+
+    print("\n=== FILTROS ===")
+    print("1. Filtrar por continente")
+    print("2. Filtrar por población")
+    print("3. Filtrar por superficie")
+
+    opcion = input("Seleccione una opción: ")
+
+    if opcion == "1":
+        filtrar_continente(paises)
+
+    elif opcion == "2":
+        filtrar_poblacion(paises)
+
+    elif opcion == "3":
+        filtrar_superficie(paises)
+
+    else:
+        print("Opción inválida.")
+
+# Filtro para los continentes
+def filtrar_continente(paises):
+
+    while True:
+        continente = input("Ingrese el continente: ").strip()
+        if continente != "":
+            break
+        print("Debe ingresar un continente.")
+
+    encontrado = False
+
+    for pais in paises:
+        if pais["continente"].lower() == continente.lower():
+            print(pais)
+            encontrado = True
+
+    if not encontrado:
+        print("No se encontraron países.")
+
+# Filtro para la población
+def filtrar_poblacion(paises):
+
+    while True:
+        try:
+            minimo = int(input("Ingrese la población mínima: "))
+            if minimo >= 0:
+                break
+            print("Debe ser un número positivo.")
+        except ValueError:
+            print("Debe ingresar un número.")
+    while True:
+        try:
+            maximo = int(input("Ingrese la población máxima: "))
+            if maximo >= minimo:
+                break
+            print("Debe ser mayor o igual al mínimo.")
+        except ValueError:
+            print("Debe ingresar un número.")
+    encontrado = False
+    for pais in paises:
+        if minimo <= pais["poblacion"] <= maximo:
+            print(pais)
+            encontrado = True
+
+    if not encontrado:
+        print("No se encontraron países.")
+
+# Filtro para la superficie
+def filtrar_superficie(paises):
+
+    while True:
+        try:
+            minimo = int(input("Ingrese la superficie mínima: "))
+            if minimo >= 0:
+                break
+            print("Debe ser un número positivo.")
+        except ValueError:
+            print("Debe ingresar un número.")
+
+    while True:
+        try:
+            maximo = int(input("Ingrese la superficie máxima: "))
+            if maximo >= minimo:
+                break
+            print("Debe ser mayor o igual al mínimo.")
+        except ValueError:
+            print("Debe ingresar un número.")
+
+    encontrado = False
+
+    for pais in paises:
+        if minimo <= pais["superficie"] <= maximo:
+            print(pais)
+            encontrado = True
+
     if not encontrado:
         print("No se encontraron países.")
 
@@ -123,13 +268,13 @@ while True:
         agregar_pais(paises)
 
     elif opcion == "2":
-        print("Actualizar país")
+        actualizar_pais(paises)
 
     elif opcion == "3":
         buscar_pais(paises)
 
     elif opcion == "4":
-        print("Filtrar países")
+        filtrar_paises(paises)
 
     elif opcion == "5":
         print("Ordenar países")
