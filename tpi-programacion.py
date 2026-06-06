@@ -243,6 +243,26 @@ def filtrar_superficie(paises):
     if not encontrado:
         print("No se encontraron países.")
 
+#ORDENAR PAISES (5)
+def ordenar_paises(paises):
+    #muestra el menu de opciones de ordenamiento
+    print("ORDENAR PAÍSES\n")
+    print("1. Ordenar por nombre")
+    print("2. Ordenar por población.")
+    print("3. Ordenar por superficie")
+
+    opcion = input(" Seleccione una opcín: ")
+
+    if opcion == "1":
+        ordenar_por_nombre(paises)
+    elif opcion == "2":
+        ordenar_por_poblacion(paises)
+    elif opcion == "3":
+        ordenar_por_superficie(paises)
+    else:
+        print("Opción inválida.")
+
+
 # MENU
 
 def mostrar_menu():
