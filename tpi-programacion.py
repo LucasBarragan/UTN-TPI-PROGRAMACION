@@ -262,6 +262,19 @@ def ordenar_paises(paises):
     else:
         print("Opción inválida.")
 
+def pedir_orden():
+    # Le pregunta al usuario si quiere orden ascendente o descendente
+    # Devuelve False si es ascendente, True si es descendente
+    print("\n1. Ascendente")
+    print("2. Descendente")
+    while True:
+        opcion = input("Seleccione el orden: ")
+        if opcion == "1":
+            return False
+        elif opcion == "2":
+            return True
+        else:
+            print("Opción inválida. Ingrese 1 o 2.")
 
 # MENU
 
