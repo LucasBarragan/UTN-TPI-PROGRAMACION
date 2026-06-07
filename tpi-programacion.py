@@ -276,6 +276,37 @@ def pedir_orden():
         else:
             print("Opción inválida. Ingrese 1 o 2.")
 
+
+def bubble_sort(paises, campo, descendente):
+    # Ordena la lista usando el Bubble Sort
+    # Recibe la lista, el campo por el que ordenar y si es descendente trabaja sobre una copia para no modificar la lista original
+    lista_ordenada = paises[:]
+    n = len(lista_ordenada)
+
+    for i in range(n - 1):
+        for j in range(n - 1 - i):
+
+            # Obtiene los valores a comparar de los dos países 
+            valor_actual = lista_ordenada[j][campo]
+            valor_siguiente = lista_ordenada[j + 1][campo]
+
+            # Si se comparan nombres, ignora mayúsculas/minúsculas
+            if campo == "nombre":
+                valor_actual = valor_actual.lower()
+                valor_siguiente = valor_siguiente.lower()
+
+            # Decide si hay que intercambiar según el orden elegido
+            if not descendente:
+                intercambiar = valor_actual > valor_siguiente
+            else:
+                intercambiar = valor_actual < valor_siguiente
+
+            # Si corresponde, intercambia los dos elementos
+            if intercambiar:
+                lista_ordenada[j], lista_ordenada[j + 1] = lista_ordenada[j + 1], lista_ordenada[j]
+
+    return lista_ordenada
+
 # MENU
 
 def mostrar_menu():
