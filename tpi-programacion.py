@@ -307,6 +307,20 @@ def bubble_sort(paises, campo, descendente):
 
     return lista_ordenada
 
+def mostrar_lista_ordenada(lista, campo, descendente):
+    # Muestra el resultado del ordenamiento con un encabezado descriptivo
+    orden_texto = "descendente" if descendente else "ascendente"
+    print(f"\n=== Países ordenados por {campo} ({orden_texto}) ===")
+    for pais in lista:
+        print(pais)
+
+
+def ordenar_por_nombre(paises):
+    # Pide el orden, ordena por nombre y muestra el resultado
+    descendente = pedir_orden()
+    lista_ordenada = bubble_sort(paises, "nombre", descendente)
+    mostrar_lista_ordenada(lista_ordenada, "nombre", descendente)
+
 # MENU
 
 def mostrar_menu():
