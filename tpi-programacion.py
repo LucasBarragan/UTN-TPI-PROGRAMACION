@@ -321,6 +321,13 @@ def ordenar_por_nombre(paises):
     lista_ordenada = bubble_sort(paises, "nombre", descendente)
     mostrar_lista_ordenada(lista_ordenada, "nombre", descendente)
 
+
+def ordenar_por_poblacion(paises):
+    # Pide el orden, ordena por población y muestra el resultado
+    descendente = pedir_orden()
+    lista_ordenada = bubble_sort(paises, "poblacion", descendente)
+    mostrar_lista_ordenada(lista_ordenada, "población", descendente)
+
 # MENU
 
 def mostrar_menu():
