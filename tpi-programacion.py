@@ -328,6 +328,13 @@ def ordenar_por_poblacion(paises):
     lista_ordenada = bubble_sort(paises, "poblacion", descendente)
     mostrar_lista_ordenada(lista_ordenada, "población", descendente)
 
+def ordenar_por_superficie(paises):
+    # Pide el orden, ordena por superficie y muestra el resultado
+    descendente = pedir_orden()
+    lista_ordenada = bubble_sort(paises, "superficie", descendente)
+    mostrar_lista_ordenada(lista_ordenada, "superficie", descendente)
+
+
 # MENU
 
 def mostrar_menu():
