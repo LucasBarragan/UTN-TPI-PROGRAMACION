@@ -369,7 +369,7 @@ while True:
         filtrar_paises(paises)
 
     elif opcion == "5":
-        print("Ordenar países")
+        ordenar_paises(paises)
 
     elif opcion == "6":
         print("Mostrar estadísticas")
