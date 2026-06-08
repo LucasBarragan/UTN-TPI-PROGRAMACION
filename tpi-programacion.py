@@ -366,6 +366,20 @@ def mostrar_estadisticas(paises):
         total_superficie += pais["superficie"]
     print(f"Promedio de superficie: {total_superficie // len(paises):,} km²")
 
+    # Cuenta cuántos países hay por continente usando un diccionario
+    # La clave es el nombre del continente y el valor es la cantidad
+    continentes = {}
+    for pais in paises:
+        continente = pais["continente"]
+        if continente in continentes:
+            continentes[continente] += 1
+        else:
+            continentes[continente] = 1
+
+    print("\nCantidad de países por continente:")
+    for continente, cantidad in continentes.items():
+        print(f"   {continente}: {cantidad} país/es")
+
 # MENU
 
 def mostrar_menu():
