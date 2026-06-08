@@ -342,6 +342,18 @@ def mostrar_estadisticas(paises):
 
     print("\n=== ESTADÍSTICAS ===")
 
+ # Busca el país con mayor y menor población recorriendo toda la lista
+    pais_mayor_pob = paises[0]
+    pais_menor_pob = paises[0]
+    for pais in paises:
+        if pais["poblacion"] > pais_mayor_pob["poblacion"]:
+            pais_mayor_pob = pais
+        if pais["poblacion"] < pais_menor_pob["poblacion"]:
+            pais_menor_pob = pais
+
+    print(f"\nPaís con MAYOR población: {pais_mayor_pob}")
+    print(f"País con MENOR población: {pais_menor_pob}")
+
 # MENU
 
 def mostrar_menu():
