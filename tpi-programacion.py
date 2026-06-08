@@ -334,6 +334,13 @@ def ordenar_por_superficie(paises):
     lista_ordenada = bubble_sort(paises, "superficie", descendente)
     mostrar_lista_ordenada(lista_ordenada, "superficie", descendente)
 
+def mostrar_estadisticas(paises):
+    # Verifica que haya países cargados antes de calcular
+    if len(paises) == 0:
+        print("No hay países cargados.")
+        return
+
+    print("\n=== ESTADÍSTICAS ===")
 
 # MENU
 
