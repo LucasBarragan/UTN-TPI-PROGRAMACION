@@ -353,6 +353,18 @@ def mostrar_estadisticas(paises):
 
     print(f"\nPaís con MAYOR población: {pais_mayor_pob}")
     print(f"País con MENOR población: {pais_menor_pob}")
+    
+    # Calcula el promedio de población sumando y dividiendo por la cantidad
+    total_poblacion = 0
+    for pais in paises:
+        total_poblacion += pais["poblacion"]
+    print(f"\nPromedio de población: {total_poblacion // len(paises):,}")
+
+    # Calcula el promedio de superficie de la misma forma
+    total_superficie = 0
+    for pais in paises:
+        total_superficie += pais["superficie"]
+    print(f"Promedio de superficie: {total_superficie // len(paises):,} km²")
 
 # MENU
 
