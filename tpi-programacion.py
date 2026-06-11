@@ -96,6 +96,7 @@ def actualizar_pais(paises):
         if nombre_buscado.lower() == pais["nombre"].lower():
             print("\nPaís encontrado:")
             print(pais)
+
             # Nueva población
             while True:
                 try:
@@ -105,6 +106,7 @@ def actualizar_pais(paises):
                     print("La población debe ser mayor que 0.")
                 except ValueError:
                     print("Debe ingresar un número.")
+
             # Nueva superficie
             while True:
                 try:
