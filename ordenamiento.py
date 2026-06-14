@@ -6,7 +6,7 @@ def ordenar_paises(paises):
     print("2. Ordenar por población.")
     print("3. Ordenar por superficie")
 
-    opcion = input(" Seleccione una opcín: ")
+    opcion = input(" Seleccione una opcíon: ")
 
     if opcion == "1":
         ordenar_por_nombre(paises)
