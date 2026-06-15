@@ -6,7 +6,7 @@ def mostrar_estadisticas(paises):
 
     print("\n=== ESTADÍSTICAS ===")
 
- # Busca el país con mayor y menor población recorriendo toda la lista
+    # Busca el país con mayor y menor población recorriendo toda la lista
     pais_mayor_pob = paises[0]
     pais_menor_pob = paises[0]
     for pais in paises:

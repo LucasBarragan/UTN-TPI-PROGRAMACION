@@ -30,7 +30,6 @@ def filtrar_continente(paises):
         if continente != "":
             break
         print("Debe ingresar un continente.")
-
     encontrado = False
 
     for pais in paises:
@@ -89,7 +88,6 @@ def filtrar_superficie(paises):
             print("Debe ser mayor o igual al mínimo.")
         except ValueError:
             print("Debe ingresar un número.")
-
     encontrado = False
 
     for pais in paises:
