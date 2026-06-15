@@ -43,10 +43,10 @@ def agregar_pais(paises):
         print("El continente no puede estar vacío.")
 
     nuevo_pais = {
-        "nombre": nombre,
-        "poblacion": poblacion,
-        "superficie": superficie,
-        "continente": continente
+    "nombre": nombre.title(),
+    "poblacion": poblacion,
+    "superficie": superficie,
+    "continente": continente.title()
     }
 
     paises.append(nuevo_pais)
@@ -68,29 +68,35 @@ def actualizar_pais(paises):
     for pais in paises:
         if nombre_buscado.lower() == pais["nombre"].lower():
             print("\nPaís encontrado:")
-            print(pais)
+            print(f"Nombre: {pais['nombre']}")
+            print(f"Población: {pais['poblacion']}")
+            print(f"Superficie: {pais['superficie']} km²")
+
             # Nueva población
             while True:
-                try:
-                    nueva_poblacion = int(input("Ingrese la nueva población: "))
+                nueva_poblacion = input("Ingrese la nueva población: ")
+                if nueva_poblacion.isdigit():
+                    nueva_poblacion = int(nueva_poblacion)
                     if nueva_poblacion > 0:
                         break
-                    print("La población debe ser mayor que 0.")
-                except ValueError:
-                    print("Debe ingresar un número.")
+                print("Debe ingresar un número mayor que 0.")
+
             # Nueva superficie
             while True:
-                try:
-                    nueva_superficie = int(input("Ingrese la nueva superficie: "))
+                nueva_superficie = input("Ingrese la nueva superficie: ")
+                if nueva_superficie.isdigit():
+                    nueva_superficie = int(nueva_superficie)
                     if nueva_superficie > 0:
                         break
-                    print("La superficie debe ser mayor que 0.")
-                except ValueError:
-                    print("Debe ingresar un número.")
+                print("Debe ingresar un número mayor que 0.")
+
             pais["poblacion"] = nueva_poblacion
             pais["superficie"] = nueva_superficie
+
             print("\nPaís actualizado correctamente.")
-            print(pais)
+            print(f"Nombre: {pais['nombre']}")
+            print(f"Población: {pais['poblacion']}")
+            print(f"Superficie: {pais['superficie']} km²")
             encontrado = True
             break
 
@@ -101,16 +107,21 @@ def actualizar_pais(paises):
 # BUSCAR PAIS (3)
 
 def buscar_pais(paises):
+
     while True:
         nombre_buscado = input("Ingrese el nombre del país: ").strip()
         if nombre_buscado != "":
             break
         print("Debe ingresar un nombre.")
     encontrado = False
+
     for pais in paises:
         if nombre_buscado.lower() in pais["nombre"].lower():
             print("\nPaís encontrado:")
-            print(pais)
+            print(f"Nombre: {pais['nombre']}")
+            print(f"Población: {pais['poblacion']}")
+            print(f"Superficie: {pais['superficie']} km²")
             encontrado = True
+
     if not encontrado:
         print("No se encontraron países.")
