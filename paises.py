@@ -11,7 +11,7 @@ def agregar_pais(paises):
 
     # Verificar si ya existe
     for pais in paises:
-        if pais["nombre"] == nombre:
+        if pais["nombre"].lower() == nombre.lower():
             print("Ese país ya existe.")
             return
 
