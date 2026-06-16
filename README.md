@@ -77,11 +77,7 @@ Participó en:
 
 ## Documentación
 
-Informe PDF:
-
-## Documentación
-
-- Informe PDF: [TPI_2_PROGRAMACION_1_INFORME.pdf] (./TPI_2_PROGRAMACION_1_INFORME.pdf)
+[Informe PDF](TPI_2_PROGRAMACION_1_INFORME.pdf)
 
 ## Video demostrativo
 
